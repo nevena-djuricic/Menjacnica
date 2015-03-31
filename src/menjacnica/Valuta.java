@@ -15,6 +15,8 @@ public class Valuta {
 	}
 	
 	public void setNaziv(String naziv) {
+		if (naziv == null)
+			throw new RuntimeException("Naziv ne sme biti null");
 		this.naziv = naziv;
 	}
 	
@@ -23,6 +25,8 @@ public class Valuta {
 	}
 	
 	public void setSkraceniNaziv(String skraceniNaziv) {
+		if (skraceniNaziv == null)
+			throw new RuntimeException("Skraceni naziv ne sme biti null");
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	
@@ -31,6 +35,8 @@ public class Valuta {
 	}
 	
 	public void setProdajni(double prodajni) {
+		if (prodajni < 0)
+			throw new RuntimeException("Prodajni kurs ne sme biti negativan broj");
 		this.prodajni = prodajni;
 	}
 	
@@ -39,6 +45,8 @@ public class Valuta {
 	}
 	
 	public void setKupovni(double kupovni) {
+		if (kupovni < 0)
+			throw new RuntimeException("Kupovni kurs ne sme biti negativan broj");
 		this.kupovni = kupovni;
 	}
 	
@@ -47,6 +55,8 @@ public class Valuta {
 	}
 	
 	public void setSrednji(double srednji) {
+		if (srednji < 0)
+			throw new RuntimeException("Srednji kurs ne sme biti negativan broj");
 		this.srednji = srednji;
 	}
 	
@@ -55,6 +65,8 @@ public class Valuta {
 	}
 	
 	public void setDatumValute(GregorianCalendar datumKursa) {
+		if (datumKursa == null) 
+			throw new RuntimeException("Datum kursa ne sme biti null");
 		this.datumKursa = datumKursa;
 	}
 
