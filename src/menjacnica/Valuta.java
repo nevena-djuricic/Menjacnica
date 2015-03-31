@@ -2,6 +2,7 @@ package menjacnica;
 
 import java.util.GregorianCalendar;
 
+
 public class Valuta {
 
 	private String naziv, skraceniNaziv;
@@ -56,4 +57,47 @@ public class Valuta {
 	public void setDatumValute(GregorianCalendar datumKursa) {
 		this.datumKursa = datumKursa;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((datumKursa == null) ? 0 : datumKursa.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(kupovni);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((naziv == null) ? 0 : naziv.hashCode());
+		temp = Double.doubleToLongBits(prodajni);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result
+				+ ((skraceniNaziv == null) ? 0 : skraceniNaziv.hashCode());
+		temp = Double.doubleToLongBits(srednji);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Valuta) {
+			Valuta v = (Valuta)(obj);
+		
+			if (naziv.equals(v.naziv) && skraceniNaziv.equals(v.skraceniNaziv) 
+					&& prodajni == v.prodajni && kupovni == v.kupovni
+					&& srednji == v.srednji && datumKursa.equals(v.datumKursa))
+				return true;
+			return false;
+		}
+		System.out.println("Uneti objekat mora biti objekat klase Valuta");
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Valuta [naziv=" + naziv + ", skraceniNaziv=" + skraceniNaziv
+				+ ", prodajni=" + prodajni + ", kupovni=" + kupovni
+				+ ", srednji=" + srednji + ", datumKursa=" + datumKursa + "]";
+	}
+	
+	
 }
